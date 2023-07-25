@@ -6,16 +6,16 @@ export const registerUser = async (req: Request, res: Response) => {
 
   if (!name || !email || !password) {
     res.status(400).send("Please enter all fields");
-  } else {
-    const user = await prisma.user.create({
-      data: {
-        email,
-        name,
-        password,
-      },
-    });
-    res.status(201).send(user);
   }
+  const user = await prisma.user.create({
+    data: {
+      email,
+      name,
+      password,
+    },
+  });
+  res.status(201).send(user);
+
   try {
   } catch (error) {
     res.status(500).send(error);

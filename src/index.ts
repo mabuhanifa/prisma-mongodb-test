@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import express from "express";
+import authRouter from "./routes/authRoute";
 import { connectDB } from "./utils/connectDB";
 
 dotenv.config();
@@ -16,6 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 connectDB();
+
+//apis
+
+app.use("/api/register", authRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
