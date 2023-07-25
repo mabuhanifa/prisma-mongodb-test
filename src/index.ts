@@ -3,6 +3,7 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import express from "express";
 import { connectDB } from "./utils/connectDB";
+import getJwtTokens from "./utils/getJwt";
 dotenv.config();
 
 const port = process.env.PORT || 3000;
@@ -15,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 connectDB();
+
+console.log(getJwtTokens("dnjfkdjf"));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
