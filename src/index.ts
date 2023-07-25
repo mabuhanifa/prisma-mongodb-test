@@ -3,6 +3,7 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import express from "express";
 import authRouter from "./routes/authRoute";
+import postRouter from "./routes/postRoute";
 import { connectDB } from "./utils/connectDB";
 
 dotenv.config();
@@ -21,6 +22,8 @@ connectDB();
 //apis
 
 app.use("/api/register", authRouter);
+
+app.use("/api/post", postRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
