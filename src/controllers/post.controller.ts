@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import prisma from "../utils/connectDB";
 
 export const createPost = async (req: Request, res: Response) => {
-  const { slug, title, body, userId } = req.body;
+  const { slug, title, body, authorId } = req.body;
 
   if (!slug || !title || !body) {
     res.status(400).send("Please enter all fields");
@@ -12,7 +12,7 @@ export const createPost = async (req: Request, res: Response) => {
       slug,
       title,
       body,
-      authorId: userId,
+      authorId,
     },
   });
   res.status(201).send(user);
