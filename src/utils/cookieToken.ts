@@ -7,11 +7,11 @@ const cookieToken = (user: User, res: Response) => {
     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
     httpOnly: true,
   };
-  user.password = undefined;
+  const { password, ...rest } = user;
   res.status(200).cookie("token", token, options).json({
     success: true,
     token,
-    user,
+    user: rest,
   });
 };
 

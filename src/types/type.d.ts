@@ -1,8 +1,8 @@
 interface User {
-  id?: string | undefine;
+  id: string;
   name: string;
   email: string;
-  password: string | undefine;
+  password: string;
   posts?: Post[];
 }
 
