@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 import { connectDB } from "./utils/connectDB";
 import getJwtTokens from "./utils/getJwt";
+
 dotenv.config();
 
 const port = process.env.PORT || 3000;

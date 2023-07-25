@@ -12,3 +12,5 @@ export async function connectDB() {
     console.error("Error connecting to the database:", error);
   }
 }
+
+export default prisma;
